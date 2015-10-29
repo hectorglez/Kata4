@@ -13,16 +13,7 @@ public class Main {
         ArrayList<String> mailArray  = MailListReader.read(nameFile);
         System.out.println(mailArray.size());
         
-        Histogram<String> histogram = new Histogram<>();
-        histogram.increment("gmail");
-        histogram.increment("gmail");
-        histogram.increment("gmail");
-        histogram.increment("ulpgc");
-        histogram.increment("ulpgc");
-        histogram.increment("ulpgc");
-        histogram.increment("ulpgc");
-        histogram.increment("ulpgc");
-        
+        Histogram<String> histogram = MailHistogramBuilder.build(mailArray);
         new HistogramDisplay(histogram).execute();
         
         
