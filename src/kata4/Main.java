@@ -25,14 +25,17 @@ public class Main {
         }
         print(file.listFiles(),"");*/
         String from="C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert.jpg";
-        String to="C:\\Users\\usuario\\Desktop\\Nueva carpeta\\bb2";
+        String to="C:\\Users\\Public\\Pictures\\Sample Pictures\\Desert(1).jpg";
         BufferedInputStream input = new BufferedInputStream(new FileInputStream(new File(from)));
         BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(new File(to)));
+        
+        byte [] buffer = new byte[1024];
+        
         Date date = new Date();
         while (true){
-            int read = input.read();
+            int read = input.read(buffer);
             if(read<0)break;
-            output.write(read);
+            output.write(buffer);
         }
         System.out.println(new Date().getTime()-date.getTime()+ " msg");
         input.close();
